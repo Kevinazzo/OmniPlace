@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+	<style name="Green" parent="@style/Theme.AppCompat.Light">
+		<item name="windowNoTitle">true</item>
+		<item name="windowActionBar">false</item>
+		<item name="android:colorPrimary">#A7CF3B</item>
+		<item name="android:colorPrimaryDark">#79AF40</item>
+		<item name="android:colorAccent">#9D9A4D</item>
+	</style>
+	<style name="Dark" parent="@style/Theme.AppCompat">
+		<item name="windowNoTitle">true</item>
+		<item name="windowActionBar">false</item>
+	</style>
+	<style name="Blue" parent="@style/Theme.AppCompat.Light">
+		<item name="windowNoTitle">true</item>
+		<item name="windowActionBar">false</item>
+		<item name="android:colorPrimary">#0099ff</item>
+		<item name="android:colorPrimaryDark">#0066ff</item>
+		<item name="android:colorAccent">#9D9A4D</item>
+	</style>
+	<!--<style name="toolbarTheme" parent="Widget.AppCompat.Toolbar">
+			<item name="android:background">#d5d3c1</item>
+			<item name="theme">@android:style/ThemeOverlay.Material.ActionBar</item>
+	</style>-->
+</resources>
