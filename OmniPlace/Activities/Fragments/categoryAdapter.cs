@@ -40,8 +40,25 @@ namespace OmniPlace
 		{
 			View row = context.LayoutInflater.Inflate(Resource.Layout.catView_mainLayout, parent, false);
 			Button btn = row.FindViewById<Button>(Resource.Id.catView_expandBtn);
+			bool isExpanded = false;
 
 			btn.Text = items[position].name;
+			btn.Click += delegate
+			{
+				Fragment fragment = new siteView_listExpander();
+				if (!isExpanded)
+				{
+					if (fragment != null)
+					{
+						context.FragmentManager.BeginTransaction().Replace(Resource.Id.catView_fragmentContainer, fragment).Commit();
+					}
+				}
+				else
+				{
+					context.FragmentManager.BeginTransaction().Remove(fragment).Commit();
+				}
+
+			};
 
 			return row;
 		}

@@ -11,7 +11,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 
-namespace OmniPlace.Activities.Fragments
+namespace OmniPlace
 {
 	public class siteView_listExpander : Fragment
 	{
@@ -35,8 +35,9 @@ namespace OmniPlace.Activities.Fragments
 		public override void OnStart()
 		{
 			base.OnStart();
-			categoryAdapter adapter = new categoryAdapter(Activity, MainActivity.env.getDB());
+
 			listview = View.FindViewById<ListView>(Resource.Id.catView_ListView);
+			siteAdapter adapter = new categoryAdapter(Activity, MainActivity.env.getDB());
 			listview.Adapter = adapter;
 		}
 	}

@@ -2044,14 +2044,14 @@ namespace OmniPlace
 			// aapt resource value: 0x7f060081
 			public const int media_actions = 2131099777;
 			
+			// aapt resource value: 0x7f060091
+			public const int menu_Config = 2131099793;
+			
 			// aapt resource value: 0x7f06008f
-			public const int menucat_cat1 = 2131099791;
+			public const int menu_addCat = 2131099791;
 			
 			// aapt resource value: 0x7f060090
-			public const int menucat_cat2 = 2131099792;
-			
-			// aapt resource value: 0x7f060091
-			public const int menucat_cat3 = 2131099793;
+			public const int menu_addSite = 2131099792;
 			
 			// aapt resource value: 0x7f060092
 			public const int menucat_cat4 = 2131099794;

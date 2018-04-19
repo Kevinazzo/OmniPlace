@@ -112,7 +112,10 @@ namespace OmniPlace
 					//	}
 					//	break;
 					#endregion
-
+					case Resource.Id.menu_addSite:
+						break;
+					case Resource.Id.menu_addCat:
+						break;
 					default:
 						Toast.MakeText(this, "No hay aplicacion de uber", ToastLength.Short).Show();
 						break;
@@ -125,7 +128,7 @@ namespace OmniPlace
 				}
 				drawerLayout.CloseDrawers();
 			};
-			#endregion
+
 
 		}
 		public override bool OnOptionsItemSelected(IMenuItem item)
@@ -138,19 +141,20 @@ namespace OmniPlace
 			}
 			return base.OnOptionsItemSelected(item);
 		}
-
-		//public void updateMenuOptions(IMenu menu, string [] catNames)
+		#endregion
+		//public void updateMenuOptions(IMenu menu, string[] catNames)
 		//{
-		//	for (int w = 0; w < length; w++)
+		//	IMenuItem nuevo;
+		//	catNames = new string[] { "Añadir Categoria, Añadir Nuevo Sitio" };
+		//	foreach (var name in catNames)
 		//	{
-
+		//		nuevo.ItemId=
 		//	}
-		//	IMenuItem item
 		//}
 		#region consoleLOG
 		public static void consWrite(string message)
 		{
-			
+
 			if (console.LineCount > 25)
 			{
 				console.Text = "";

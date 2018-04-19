@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<group android:checkableBehavior="single">
 		<item
-		  android:id="@+id/menucat_cat1"
+		  android:id="@+id/menu_addCat"
 		  android:title="categoria1" />
 		<!--android:icon="@drawable/ic_event"-->
 
 		<item
-		  android:id="@+id/menucat_cat2"
+		  android:id="@+id/menu_addSite"
 		  android:title="categoria2" />
 		<!--android:icon="@drawable/ic_headset"-->
 
 		<item
-		  android:id="@+id/menucat_cat3"
+		  android:id="@+id/menu_Config"
 		  android:title="categoria3" />
 		<!--android:icon="@drawable/ic_forum"-->
 
 		<item
 			android:id="@+id/menucat_cat4"/>
 			android:title="cateogria4"
-			
+			android:visible="false"
 	</group>
 </menu>
