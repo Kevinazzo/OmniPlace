@@ -84,9 +84,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\Fragments\categoryAdapter.cs" />
+    <Compile Include="Activities\Fragments\siteAdapter.cs" />
+    <Compile Include="Activities\Fragments\siteView_listExpander.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\OmniPlaceEnvironment.cs" />
     <Compile Include="Activities\model.cs" />
+    <Compile Include="Activities\userInputDialog.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -99,18 +103,26 @@
     <AndroidResource Include="Resources\layout\layout_Console.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\layout_input_dialogBox.axml">
+    <AndroidResource Include="Resources\layout\inputDialogbox_mainLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\catView_mainLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\catView_listView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\siteView_Row.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\layout_Main.axml">
+    <AndroidResource Include="Resources\layout\Main_layout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Activities\Fragments\" />
     <Folder Include="Resources\drawable\" />
     <Folder Include="Resources\mipmap-hdpi\" />
     <Folder Include="Resources\mipmap-mdpi\" />

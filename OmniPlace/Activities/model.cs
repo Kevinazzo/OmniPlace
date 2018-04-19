@@ -35,6 +35,9 @@ namespace OmniPlace.Model
 
 		[JsonProperty("category")]
 		public category Parent { get; set; }
+
+		[JsonProperty("notes")]
+		public string notes { get; set; }
 	}
 	[JsonObject]
 	public class category //categoria para agrupar sitios, todo sitio tiene una categoria padre
@@ -57,9 +60,6 @@ namespace OmniPlace.Model
 
 		[JsonProperty("child_sites")]
 		public List<site> child_sites = new List<site>();
-
-		[JsonProperty("child_cat")]
-		public List<category> child_cat = new List<category>();
 	}
 
 

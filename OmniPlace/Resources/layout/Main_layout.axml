@@ -10,24 +10,21 @@
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="fill_parent">
     <!--Main content View-->
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:text="Console Ready"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/mainActivity_txtConsole" />
-            <ImageView
-                android:id="@+id/logo_container"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent" />
+			<ListView
+				android:minWidth="25px"
+				android:minHeight="25px"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:id="@+id/catView_ListView" />
         </FrameLayout>
         <android.support.design.widget.NavigationView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:id="@+id/nav_view"

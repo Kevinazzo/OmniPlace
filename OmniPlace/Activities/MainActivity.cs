@@ -26,10 +26,13 @@ namespace OmniPlace
 		#region variable
 		private DrawerLayout drawerLayout;
 		private NavigationView navView;
+		private ListView catListView;
+		private categoryAdapter catListAdapter;
 		private IMenu menu;
 		private static TextView console;
 		private static DisplayMetrics metrics;
-		public OmniPlaceEnvironment env;
+		private FloatingActionButton floatBtn;
+		public static OmniPlaceEnvironment env;
 		public static int DeviceDpHeight { get; set; }
 		public static int DeviceDpWidth { get; set; }
 		public static int DevicePxHeight { get; set; }
@@ -39,35 +42,111 @@ namespace OmniPlace
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-			SetContentView(Resource.Layout.layout_Main);
+			SetContentView(Resource.Layout.Main_layout);
+
+			#region varDeclaration
 			metrics = Resources.DisplayMetrics;
 			drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
 			navView = FindViewById<NavigationView>(Resource.Id.nav_view);
 			menu = navView.Menu;
+			//floatBtn = FindViewById<FloatingActionButton>(Resource.Id.f)
 			env = new OmniPlaceEnvironment();
 			DeviceDpWidth = ConvertPxToDp(metrics.WidthPixels);
 			DeviceDpHeight = ConvertPxToDp(metrics.HeightPixels);
 			DevicePxWidth = ConvertDpToPx(DeviceDpWidth);
 			DevicePxHeight = ConvertDpToPx(DeviceDpHeight);
 			console = FindViewById<TextView>(Resource.Id.mainActivity_txtConsole);
-
-
+			catListView = FindViewById<ListView>(Resource.Id.catView_ListView);
+			catListAdapter = new categoryAdapter(this, env.getDB());
+			#endregion
 
 			env.initializeDB();
+			catListView.Adapter = catListAdapter;
 
-
+			#region toolbar config
 			var customtoolbar = FindViewById<v7Toolbar>(Resource.Id.toolbar);
 			SetSupportActionBar(customtoolbar);
 			SupportActionBar.Title = "OmniPlace";
 			SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 			SupportActionBar.SetHomeButtonEnabled(true);
-			//SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu_white_24dp);
-		}
+			//SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu_white_24dp); //open side menu image button
+			#endregion
+			#region MenuActions
+			//control de acciones del menu, swapear entre fragments
+			navView.NavigationItemSelected += (sender, e) =>
+			{
+				Android.App.Fragment fragment = null;
 
-		public void updateMenuOptions()
+				switch (e.MenuItem.ItemId)
+				{
+					#region codigoViejo
+					//case Resource.Id.nav_campSites:
+					//	SupportActionBar.Title = "CampApp - Sitios de Acampar";
+					//	logo_container.SetImageResource(0);
+					//	fragment = new frg_campingSites();
+					//	break;
+					//case Resource.Id.nav_climbSites:
+					//	SupportActionBar.Title = "CampApp - Rutas de escalada";
+					//	logo_container.SetImageResource(0);
+					//	fragment = new frg_climbingSites();
+					//	break;
+					//case Resource.Id.nav_Restaurants:
+					//	SupportActionBar.Title = "CampApp - Restaurantes";
+					//	logo_container.SetImageResource(0);
+					//	fragment = new frg_restaurants();
+					//	break;
+					//case Resource.Id.nav_uber:
+					//	try
+					//	{
+					//		var uri = Android.Net.Uri.Parse("market://details?id=com.ubercab");
+					//		Intent intent = new Intent(Intent.ActionView, uri);
+					//		intent.AddFlags(ActivityFlags.NewTask);
+					//		BaseContext.StartActivity(intent);
+					//	}
+					//	catch (System.Exception)
+					//	{
+					//		var uri = Android.Net.Uri.Parse("https://play.google.com/store/apps/details?id=com.ubercab");
+					//		Intent intent = new Intent(Intent.ActionView, uri);
+					//		intent.AddFlags(ActivityFlags.NewTask);
+					//		BaseContext.StartActivity(intent);
+					//	}
+					//	break;
+					#endregion
+
+					default:
+						Toast.MakeText(this, "No hay aplicacion de uber", ToastLength.Short).Show();
+						break;
+				}
+				e.MenuItem.SetChecked(true);
+				//react to click here and swap fragments or navigate
+				if (fragment != null)
+				{
+					FragmentManager.BeginTransaction().Replace(Resource.Id.fragment_container, fragment).Commit();
+				}
+				drawerLayout.CloseDrawers();
+			};
+			#endregion
+
+		}
+		public override bool OnOptionsItemSelected(IMenuItem item)
 		{
-
+			switch (item.ItemId)
+			{
+				case Android.Resource.Id.Home:
+					drawerLayout.OpenDrawer(Android.Support.V4.View.GravityCompat.Start);
+					return true;
+			}
+			return base.OnOptionsItemSelected(item);
 		}
+
+		//public void updateMenuOptions(IMenu menu, string [] catNames)
+		//{
+		//	for (int w = 0; w < length; w++)
+		//	{
+
+		//	}
+		//	IMenuItem item
+		//}
 		#region consoleLOG
 		public static void consWrite(string message)
 		{
